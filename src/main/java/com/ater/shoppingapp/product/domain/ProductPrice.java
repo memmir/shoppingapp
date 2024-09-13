@@ -15,6 +15,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ProductPrice {
     private String id;
     private String productId;
-    private String currency;
+    private Currency currency;
     private String price;
 }
