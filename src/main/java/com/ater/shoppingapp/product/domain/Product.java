@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Document(collection = "product")
 //Oluşturdğumuz modelin MongoDb de bulunan collection lara karşılık gelmesini sağlayan annotation.
@@ -23,5 +24,6 @@ public class Product {
     private String features;
     private String categoryId;
     private String productCode;
+    private List<ProductImage> productImage;
     private Boolean active;
 }
