@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "product_price")
+@Document(collation = "product_price")
 //Oluşturdğumuz modelin MongoDb de bulunan collection lara karşılık gelmesini sağlayan annotation.
 // Spring Data daki gibi entity kullanıyorduk relational databaselerde. Mongodb de document kullanılıyor.
 //Mongo relational database olmadığı için collectionlar var

@@ -7,7 +7,7 @@ import lombok.Setter;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 //Bu classın işlevi: Elastic search deki bir product ı represente etmeyi sağlayacak.
-@Document(indexName = "product ")
+@Document(indexName = "product")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")

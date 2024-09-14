@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Document(collection = "product")
+@Document(collation = "product")
 //Oluşturdğumuz modelin MongoDb de bulunan collection lara karşılık gelmesini sağlayan annotation.
 // Spring Data daki gibi entity kullanıyorduk relational databaselerde. Mongodb de document kullanılıyor.
 //Mongo relational database olmadığı için collectionlar var
