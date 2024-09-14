@@ -29,7 +29,7 @@ public class ProductService {
     private final ProductAmountService productAmountService;
     private final ProductImageService productImageService;
 
-    public Flux<ProductResponse> getByPaging(Pageable pageable){
+    public Flux<ProductResponse> getAll(){
 
         return productEsRepository.findAll().map(this::mapToDto);
 
