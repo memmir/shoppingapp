@@ -1,5 +1,6 @@
 package com.ater.shoppingapp.product.domain;
 
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,10 +15,12 @@ import java.util.List;
 //Mongo relational database olmadığı için collectionlar var
 @Getter
 @Setter
+@Builder
 @EqualsAndHashCode(of = "id") // 2 product price nesnesinin birbirine eşit olup olmadığını anlayacağız değişken id değişkeni olduğunu belirttik.
 public class Product {
 
     private String id;
+    private String code;
     private String name;
     private String description;
     private String companyId;
