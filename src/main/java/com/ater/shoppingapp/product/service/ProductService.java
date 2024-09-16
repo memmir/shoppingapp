@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 
 import java.math.BigDecimal;
@@ -58,8 +59,8 @@ public class ProductService {
                 .build();
 
         product = productRepository.save(product).block();
-        productEsService.saveNewProduct(product);
-        return null;
+
+        return this.mapToDto(productEsService.saveNewProduct(product).block());
     }
 
 
@@ -70,6 +71,8 @@ public class ProductService {
         // 4 - response nesnesine donustur.
      */
     private ProductResponse mapToDto(ProductEs productEs) {
+
+        if (productEs==null) return null;
 
         BigDecimal productPrice = productPriceService.getByCurrency(productEs.getId(), Currency.USD );
 
@@ -88,5 +91,9 @@ public class ProductService {
                 .seller(ProductSellerResponse.builder().id(productEs.getId()).name(productEs.getName()).build())
                 .build();
 
+    }
+
+    public Mono<Long> count() {
+        return productRepository.count();
     }
 }

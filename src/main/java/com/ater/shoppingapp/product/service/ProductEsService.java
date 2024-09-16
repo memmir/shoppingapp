@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 @RequiredArgsConstructor
@@ -21,8 +22,8 @@ public class ProductEsService {
         return productEsRepository.findAll();
     }
 
-    @Async
-    public void saveNewProduct(Product product) {
+
+    public Mono<ProductEs> saveNewProduct(Product product) {
 
         ProductEs productEs = ProductEs.builder()
                 .active(product.getActive())
@@ -35,8 +36,8 @@ public class ProductEsService {
                 .companyId(CompanyEs.builder().id(product.getCompanyId()).name("test").build())
                 .categoryId(CategoryEs.builder().id(product.getCategoryId()).name("test").build())
                 .build();
+         return productEsRepository.save(productEs);
 
-        productEsRepository.save(productEs);
     }
 
 }
