@@ -27,4 +27,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### projeyi çalıştırmak için cd web
 ### cd web
-### yarn serve
+### npm run serve
