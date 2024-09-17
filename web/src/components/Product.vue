@@ -64,10 +64,23 @@
 </template>
 
 <script>
+import {get} from "@/common/api.service";
+
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  name: 'Product',
+  components: {},
+  data() {
+    return {products: []};
+  },
+  created(){
+    this.getProducts();
+  },
+  methods:{
+    getProducts(){
+      get('products').then(response => {
+        this.products = response.data
+      })
+    }
   }
 }
 </script>
